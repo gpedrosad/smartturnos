@@ -14,7 +14,7 @@ export default function BottomTab() {
   const [active, setActive] = useState('profile');
 
   return (
-    <View style={tw`flex-row justify-between px-6 py-3 bg-white`}>
+    <View style={tw`flex-row justify-between px-6 py-3 bg-white mb-6`}>
       {tabs.map((tab) => {
         const isActive = tab.key === active;
         return (

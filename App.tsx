@@ -5,7 +5,20 @@ import tw from 'tailwind-react-native-classnames';
 import AppointmentCard from './components/AppointmentCard';
 import NotificationCard from './components/NotificationCard';
 import Profile from './components/Profile';
+import Especialidades from './components/Specialties';
 import BottomTab from './components/BottomTab';
+
+const especialidadesList = [
+  'Alergia e Inmunología',
+  'Cardiología',
+  'Cirugía',
+  'Clínica',
+  'Dermatología',
+  'Endocrinología',
+  'Gastroenterología',
+  'Oftalmología',
+  'Ginecología',
+];
 
 export default function App() {
   return (
@@ -33,6 +46,15 @@ export default function App() {
           {/* Sección de Perfil dentro del scroll */}
           <View style={tw`w-full mt-8`}>
             <Profile />
+          </View>
+
+          {/* Sección de Especialidades */}
+          <View style={tw`w-full mt-8`}>
+            <Especialidades
+              items={especialidadesList}
+              onBack={() => console.log('Volver')}
+              onPressItem={esp => console.log('Seleccionó:', esp)}
+            />
           </View>
         </ScrollView>
 
