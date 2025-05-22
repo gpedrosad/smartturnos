@@ -6,10 +6,9 @@ import AppointmentCard from './components/AppointmentCard';
 import NotificationCard from './components/NotificationCard';
 import Profile from './components/Profile';
 import Especialidades from './components/Specialties';
-import BottomTab from './components/BottomTab';
 import Cobertura from './components/Cobertura';
-
-
+import CardDetails from './components/CardDetails';
+import BottomTab from './components/BottomTab';
 
 const especialidadesList = [
   'Alergia e Inmunología',
@@ -22,10 +21,11 @@ const especialidadesList = [
   'Oftalmología',
   'Ginecología',
 ];
+
 export default function App() {
   return (
-    <SafeAreaView style={tw`flex-1 bg-gray-100`}>      
-      <View style={tw`flex-1`}>        
+    <SafeAreaView style={tw`flex-1 bg-gray-100`}>
+      <View style={tw`flex-1`}>
         <ScrollView
           style={tw`flex-1`}
           contentContainerStyle={[tw`items-center py-6 px-4 mt-10`, { flexGrow: 1 }]}
@@ -45,13 +45,25 @@ export default function App() {
             onPress={() => console.log('Ver detalle')}
           />
 
+          {/* CardDetails ejemplo */}
+          <View style={tw`w-full mt-8`}>
+            <CardDetails
+              name="Anastasia López"
+              specialty="Oftalmología"
+              date="Martes, 3 de octubre"
+              time="11:00 – 12:00 AM"
+              location="Tres de febrero 2345, Belgrano"
+              status="Disponible"
+            />
+          </View>
+
           {/* Sección de Perfil dentro del scroll */}
           <View style={tw`w-full mt-8`}>
             <Profile />
           </View>
 
           {/* Componente Cobertura */}
-          <View style={tw`w-full`}>            
+          <View style={tw`w-full mt-8`}>
             <Cobertura
               credentialNumber="800006 7486591 02 0010"
               obraSocial=""
@@ -67,7 +79,7 @@ export default function App() {
             <Especialidades
               items={especialidadesList}
               onBack={() => console.log('Volver')}
-              onPressItem={esp => console.log('Seleccionó:', esp)}
+              onPressItem={(esp) => console.log('Seleccionó:', esp)}
             />
           </View>
         </ScrollView>
