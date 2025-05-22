@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import Especialidades from './components/Specialties';
 import Cobertura from './components/Cobertura';
 import CardDetails from './components/CardDetails';
+import UpdateSuccess from './components/UpdateSuccess';
 import BottomTab from './components/BottomTab';
 
 const especialidadesList = [
@@ -74,8 +75,13 @@ export default function App() {
             />
           </View>
 
-          {/* Sección de Especialidades */}
+          {/* Mensaje de éxito tras actualizar */}
           <View style={tw`w-full mt-8`}>
+            <UpdateSuccess />
+          </View>
+
+          {/* Sección de Especialidades */}
+          <View style={tw`w-full mt-8 mb-8`}>
             <Especialidades
               items={especialidadesList}
               onBack={() => console.log('Volver')}
